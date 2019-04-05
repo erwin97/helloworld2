@@ -1,6 +1,7 @@
 FROM openjdk:8
-COPY HelloWorld.java .
-RUN javac HelloWorld.java
+COPY src /home/root/java/src
+WORKDIR /home/root/java
+RUN mkdir bin
+RUN javac -d bin src/HelloWorld.java
 
-ENTRYPOINT java HelloWorld
-CMD ["java", "HelloWorld"]
+ENTRYPOINT ["java", "-cp", "bin", "HelloWorld"]
