@@ -1,5 +1,5 @@
 FROM openjdk:8
-COPY HelloWorld.java .
-RUN javac HelloWorld.java
+COPY helloworld.java .
+RUN javac helloworld.java
+ENTRYPOINT ["java", "helloworld"]
 
-ENTRYPOINT ["java", "HelloWorld"]
